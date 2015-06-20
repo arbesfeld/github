@@ -15,7 +15,7 @@
 
   // Initial Setup
   // -------------
-
+  var cacheBuster = (new Date()).getTime();
   var XMLHttpRequest,  _;
   /* istanbul ignore else  */
   if (typeof exports !== 'undefined') {
@@ -48,7 +48,7 @@
     function _request(method, path, data, cb, raw, sync) {
       function getURL() {
         var url = path.indexOf('//') >= 0 ? path : API_URL + path;
-        return url + ((/\?/).test(url) ? '&' : '?') + (new Date()).getTime();
+        return url + ((/\?/).test(url) ? '&' : '?') + cacheBuster;
       }
 
       var xhr = new XMLHttpRequest();
