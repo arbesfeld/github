@@ -522,7 +522,7 @@
 
       this.contents = function(ref, path, cb) {
         path = encodeURI(path);
-        _request("GET", repoPath + "/contents" + (path ? "/" + path : "") + (ref ? '/' + ref : ''), null, cb);
+        _request("GET", repoPath + "/contents" + (path ? "/" + path : "") + (ref ? '?ref=' + ref : ''), null, cb);
       };
 
       // Fork repository
