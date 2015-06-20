@@ -12,7 +12,7 @@
 
 (function() {
   'use strict';
-  
+
   // Initial Setup
   // -------------
 
@@ -24,11 +24,11 @@
       if (typeof btoa === 'undefined') {
         var btoa = require('btoa'); //jshint ignore:line
       }
-      
-  } else { 
-      _ = window._; 
+
+  } else {
+      _ = window._;
   }
-  
+
   //prefer native XMLHttpRequest always
   /* istanbul ignore if  */
   if (typeof window !== 'undefined' && typeof window.XMLHttpRequest !== 'undefined'){
@@ -251,7 +251,7 @@
         if (branch === currentTree.branch && currentTree.sha) {
           return cb(null, currentTree.sha);
         }
-        
+
         that.getRef('heads/' + branch, function(err, sha) {
           currentTree.branch = branch;
           currentTree.sha = sha;
@@ -267,7 +267,7 @@
           if (err) {
             return cb(err);
           }
-          
+
           cb(null, res.object.sha);
         });
       };
@@ -316,7 +316,7 @@
           if (err) {
             return cb(err);
           }
-          
+
           cb(null, tags);
         });
       };
@@ -522,7 +522,7 @@
 
       this.contents = function(ref, path, cb) {
         path = encodeURI(path);
-        _request("GET", repoPath + "/contents" + (path ? "/" + path : ""), { ref: ref }, cb);
+        _request("GET", repoPath + "/contents" + (path ? "/" + path : "") + (ref ? '/' + ref : '', null, cb);
       };
 
       // Fork repository
